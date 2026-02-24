@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - QUICKWIT_URL=http://your-quickwit-host:17280
+      - QUICKWIT_INDEX=k8s-logs-prod
+      - QUICKWIT_USER=your-user
+      - QUICKWIT_PASS=your-password
+      - BASIC_AUTH_USER=admin
+      - BASIC_AUTH_PASS=admin123
+    restart: unless-stopped
